@@ -1,0 +1,24 @@
+# Jekyll build directory
+_site/
+
+# Gem related files
+*.gem
+Gemfile.lock
+
+# Ignore all log files
+*.log
+
+# Ignore all temporary files
+*.tmp
+
+# Ignore macOS specific files
+.DS_Store
+
+# Ignore Jekyll cache
+.jekyll-cache/
+
+# Ignore other editor files
+.idea/
+.vscode/
+*.swp
+*.swo

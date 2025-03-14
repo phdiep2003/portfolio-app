@@ -1,0 +1,173 @@
+---
+layout: default
+title: Home
+---
+
+<!DOCTYPE html>
+<html data-bs-theme="auto" lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{{ page.title }}</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css">
+    <script defer src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
+    <link rel="shortcut icon" type="image/png" href="{{ '/assets/media/Phat.png' | relative_url }}">
+    <link rel="stylesheet" href="/assets/css/base.css">
+    <link rel="stylesheet" href="/assets/css/main.css">
+    <link rel="stylesheet" href="/assets/css/responsive.css">
+    <script src="/assets/js/scripts.js"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body>
+    <header>
+        <nav class="navbar fixed-top navbar-expand-lg bg-body-tertiary">
+            <div class="container-fluid flex-lg-column">
+                <a class="navbar-brand" href="#about-me"><strong>{{ site.data.profile.profile.name }}</strong></a>
+                <button class="navbar-toggler" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasNavbar" aria-controls="offcanvasNavbar" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon-light" data-bs-theme="dark"></span>
+                </button>
+                <div class="offcanvas offcanvas-end" tabindex="-1" id="offcanvasNavbar" aria-labelledby="offcanvasNavbarLabel">
+                    <div class="offcanvas-header">
+                        <h5 class="offcanvas-title" id="offcanvasNavbarLabel">Menu</h5>
+                        <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+                    </div>
+                    <div class="offcanvas-body">
+                        <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                            <li class="nav-item">
+                                <a class="nav-link" aria-current="page" href="#about-me"><strong>About Me</strong></a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="#education"><strong>Education</strong></a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="#work"><strong>Work Experience</strong></a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="#certificate"><strong>Certificate</strong></a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" target="_blank" href="https://www.linkedin.com/in/phat-diep/"><strong>LinkedIn</strong></a>
+                            </li>
+                        </ul>
+                        <div class="d-none d-lg-block form-check form-switch">
+                            <input class="form-check-input" type="checkbox" id="darkModeSwitch" checked>
+                            <label class="form-check-label" for="darkModeSwitch">
+                                <i class="bi bi-moon-fill nav-link"></i>
+                            </label>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </nav>
+    </header>
+    
+    <main class="main">
+        <section id="about-me">
+            <div class="about-me">
+                <img class="d-none d-sm-block d-sm-none d-md-block img-fluid img-thumbnail" src="{{ '/assets/media/photo.JPG' | relative_url }}" alt="My Photo">
+                <ul class="body__heading-text">
+                    <li><h2 class="h2">- I'm {{ site.data.profile.profile.name }}</h2></li>
+                    <li><h3 class="h3"><strong>{{ site.data.profile.profile.title }}</strong></h3></li>
+                    <li>
+                        <p id="summary">{{ site.data.profile.profile.summary }}</p>
+                    </li>
+                    <div class="text-lg-start text-center">
+                        <a class="btn btn-outline-primary" href="https://www.linkedin.com/in/phat-diep/" target="_blank" role="button">My LinkedIn</a>
+                    </div>
+                </ul>
+            </div>
+            <img class="d-lg-none d-xl-block d-xl-none d-md-none d-lg-block img-fluid img-thumbnail" src="{{ '/assets/media/photo.JPG' | relative_url }}" alt="My Photo">
+            
+            <h2 class="h2">Skills Summary</h2>
+            <ul class="section-list">
+                <li><b>Corporate Finance:</b> Financial Modelling (3-Statement, DCF, M&A, LBO), Intrinsic & Risk Neutral Valuations</li>
+                <li><b>Investment:</b> Asset Allocation (Markowitz, Black-Literman), Multifactor Models (Fama & French), Derivative Strategies (Swaps, Futures, Options), Bloomberg Securities Screening</li>
+                <li><b>Data Communication:</b> Microsoft Excel (Master), Python, SQL, VBA, R-Studio, IBM-SPSS, Tableau.</li>
+                <li><b>Programming Languages:</b> Python, Java, JavaScript, SQL, C0 & C, SML, HTML & CSS.</li>
+            </ul>
+        </section>
+
+        <section id="education">
+            <h2 class="h2">Education</h2>
+            {% for edu in site.data.profile.education %}
+            <div class='title-date'>
+                <h3 class="h3 title_work">{{ edu.institution }}</h3>
+                <h3 class="date_work">{{ edu.expected_graduation }}</h3>
+            </div>
+            <ul class="section-list">
+                <li><b>{{ edu.degree }}</b> - GPA: {{ edu.gpa }}</li>
+                <li><b>Concentration:</b> {{ edu.concentration }}</li>
+                <li><b>Minor:</b> {{ edu.minor }} - Dean's List: {{ edu.deans_list }}</li>
+                <li><b>Certificates:</b>
+                    {% for certificate in edu.certificates %}
+                        {{ certificate }}{% unless forloop.last %}, {% endunless %}
+                    {% endfor %}
+                </li>
+            </ul>
+            {% endfor %}
+        </section>
+        
+        <section id="work">
+            <h2 class="h2">Work History</h2>
+            {% for job in site.data.profile.work_history %}
+            <div class="job">  
+                <div class='title-date'>
+                    <h3 class="h3 title_work"><strong>{{ job.company }}</strong></h3>
+                    <h3 class="date_work">{{ job.date }}</h3>
+                </div>
+                <h4 class="h4">{{ job.position }} | {{ job.location }}</h4>
+                <ul class="section-list">
+                    {% for responsibility in job.responsibilities %}
+                    <li>{{ responsibility }}</li>
+                    {% endfor %}
+                </ul>
+            </div> 
+            {% endfor %}    
+        </section>
+
+        <div id="courseSkills">
+            <h2 class="h2">Course Skills</h2>
+            {% for skill in site.data.profile.courseSkills %}
+            <h3 class="h3">{{ skill.title }}</h3>
+            <ul class="section-list">
+                {% for task in skill.tasks %}
+                <li>{{ task }}</li>
+                {% endfor %}
+            </ul>
+            {% if forloop.first %}
+                <canvas id="cookieChart" width="250" height="150"></canvas>
+            {% endif %}
+            {% endfor %}
+        </div>
+
+        <!-- <canvas id="cookieChart" width="250" height="150"></canvas> -->
+
+        <section id="extracurriculars">
+            <h3 class="h3">Extracurricular Activities</h3>
+            <ul class="section-list">
+                {% for activity in site.data.profile.extracurriculars %}
+                <li>{{ activity }}</li>
+                {% endfor %}
+            </ul>
+        </section>    
+
+        <section id="certificate">
+            <h2 class="h2">Certificates</h2>
+            {% for cert in site.data.profile.certificates %}
+            <div class='certificate'>
+                <div class='title-date'>
+                    <h3 class="h3">
+                        <a class="certi" href="{{ cert.link }}" target="_blank">{{ cert.title }}</a>
+                    </h3>
+                    <h3 class="date_work">{{ cert.date }}</h3>
+                </div>
+                <ul class="section-list">
+                    <li>{{ cert.skills | join: ', ' }}</li>
+                </ul>
+            </div>
+            {% endfor %}
+        </section>
+    </main>
+</body>
+</html>
