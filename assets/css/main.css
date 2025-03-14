@@ -1,0 +1,137 @@
+/* Header */
+.navbar {
+    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+    --bs-navbar-brand-font-size:1.25rem;
+    --bs-navbar-brand-color:white!important;
+    --bs-navbar-nav-link-padding-x:2rem;
+    line-height: 2rem;
+    padding:0;
+    
+}
+
+.container-fluid {  
+    display:flex !important;
+    background-color:var(--cmu-color);
+    /* flex-direction: column;  */
+    justify-content: space-between!important;
+    padding-top:.5rem;
+}
+.nav-link:hover{
+    opacity:0.5;
+}
+.navbar-brand:hover{
+    color:rgba(255,255,255,0.5);
+}
+
+.navbar-nav {
+    width: 100%;    
+    font-size: calc(0.4rem + .6vw);
+    font-family: Helvetica, sans-serif;
+    justify-content: space-evenly;
+    /* --bs-emphasis-color-rgb:white!important; */
+}
+
+.form-check-input {
+    display: none!important;
+}
+.form-check{
+    transform:translateY(6px);
+}
+.bi-moon-fill{
+    font-size:calc(100% + 0.3rem);
+}
+.form-check:hover {
+    opacity: 0.5;
+}
+
+i {
+	font-size:0.9rem;
+	line-height: 1.7rem;
+}
+
+/* Home */
+.about-me{
+    display: flex;
+    list-style: none;
+    padding-bottom:6px;
+}
+
+.img-fluid{
+    max-height:250px;
+    /* border-radius: 10px; */
+}
+
+#summary{
+    margin:0 0;
+    font-size:calc(+1rem);
+    justify-content: center;
+    line-height: 1.5rem;
+}
+
+.body__heading-text{
+    list-style: none;
+}
+
+.btn{
+	font-weight: bold;
+	/* background-color: var(--cmu-color); */
+	color:  var(--cmu-color);
+    border-color:  var(--cmu-color);
+	padding: 10px;
+	margin-top:5px;
+	cursor: pointer;
+    --bs-btn-hover-border-color: rgba(255,255,255,0.5);
+    --bs-btn-hover-bg: var(--cmu-color);
+} 
+/* Education */
+
+.section-list{
+    font-size: 0.9rem;
+    /* padding: 0 1rem; */
+}
+
+.section-list li {
+    width: calc(100% + 2.5rem); /* Expands the space */
+}
+
+.gallery{
+    /* max-height:1000px; */
+    max-width: 100%;
+    border-radius: 0;
+    margin-bottom:20px;
+    display: block;
+}
+
+/* This will apply the style to all the date */
+.date_work {
+    font-size: 0.9rem;
+    font-style: italic;
+}
+/* Work */
+
+.title-date{
+    display: flex;
+    justify-content: space-between;
+}
+
+/* Certificate */
+.title{
+    font-size: 0.9rem;
+    font-weight: normal;
+}
+.certi{
+    font-size: 0.9rem;
+    /* color:rgb(93, 134, 255); */
+    color:var(--cmu-color);
+}
+
+.navbar-toggler-icon-light {
+    display: inline-block;
+    width: 1.5em;
+    height: 1.5em;
+    vertical-align: middle;
+    background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 30 30'%3e%3cpath stroke='rgba%28255, 255, 255, 0.55%29' stroke-linecap='round' stroke-miterlimit='10' stroke-width='2' d='M4 7h22M4 15h22M4 23h22'/%3e%3c/svg%3e");;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: 100%;
+}
